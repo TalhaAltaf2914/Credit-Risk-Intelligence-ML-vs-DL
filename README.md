@@ -26,8 +26,8 @@ The model relies heavily on repayment status (`PAY_0`) and the custom `utilizati
 The higher curve for XGBoost indicates a much stronger ability to separate default vs. non-default cases.
 
 ## 📂 Repository Structure
-- `notebooks/01_Neural_Net_Baseline.ipynb`: Initial PyTorch Multi-Layer Perceptron.
-- `notebooks/02_XGBoost_Optimization.ipynb`: Feature engineering and comparison.
+- `notebooks/Neural_Net_Credit_Card_Clients_Default_Predictor.ipynb`: Initial PyTorch Multi-Layer Perceptron.
+- `notebooks/XGBoost_Credit_Card_Clients_Default_Predictor.ipynb`: Feature engineering and comparison.
 - `images/`: PNG files of all performance plots.
 - `requirements.txt`: Python environment dependencies.
 
