@@ -8,22 +8,38 @@ An end-to-end machine learning pipeline to predict credit card default risk usin
 - **Feature Engineering:** Developed "Utilization" and "Payment" ratios that improved model sensitivity.
 
 ## 📊 Results Summary
-XGBoost outperformed the Neural Network across all key classification metrics, particularly in handling the minority class (defaults).
+The core of this project is the performance lift achieved through feature engineering and model selection. While the Neural Network provided a strong baseline, XGBoost captured the tabular relationships more effectively.
 
-| Metric | Neural Network | XGBoost (Final) |
-| :--- | :--- | :--- |
-| **Accuracy** | 79.2% | **79.5%** |
-| **ROC-AUC** | 0.720 | **0.781** |
-| **F1-Score** | 0.520 | **0.550** |
+| Metric | Neural Network (PyTorch) | XGBoost (Final) | Improvement |
+| :--- | :--- | :--- | :--- |
+| **ROC-AUC** | 0.720 | **0.781** | **+8.4%** |
+| **F1-Score** | 0.520 | **0.550** | **+5.7%** |
+| **Accuracy** | 79.2% | **79.5%** | +0.3% |
 
-### Visual Analysis
-#### Feature Importance
+### 📈 Model Comparison
+The bar chart below illustrates the consistent performance lead of the XGBoost model across all classification metrics.
 
-The model relies heavily on repayment status (`PAY_0`) and the custom `utilization_ratio`.
+![Model Comparison](images/comparison_plot.png)
 
-#### ROC Curve
+### 🎯 ROC Curve Analysis
+The ROC Curve demonstrates the model's ability to distinguish between defaulters and non-defaulters. The XGBoost model shows a significantly higher True Positive Rate.
 
-The higher curve for XGBoost indicates a much stronger ability to separate default vs. non-default cases.
+![ROC Curve](images/roc_curve.png)
+
+### 🧬 Feature Importance (Interpretability)
+A key advantage of the XGBoost approach was model interpretability. The plot below highlights that my engineered 'Utilization Ratio' and the most recent repayment status (PAY_0) were the strongest predictors of default.
+
+![Feature Importance](images/feature_importance.png)
+
+## 🛠️ Feature Engineering
+I developed two domain-specific features to capture financial behavior:
+1. **Utilization Ratio:** `BILL_AMT / LIMIT_BAL` (Detects over-leveraged clients).
+2. **Payment Ratio:** `PAY_AMT / BILL_AMT` (Measures repayment consistency).
+
+## 🧰 Technical Stack
+- **Frameworks:** PyTorch, XGBoost, Scikit-Learn
+- **Processing:** Pandas, NumPy
+- **Visuals:** Seaborn, Matplotlib
 
 ## 📂 Repository Structure
 - `notebooks/Neural_Net_Credit_Card_Clients_Default_Predictor.ipynb`: Initial PyTorch Multi-Layer Perceptron.
